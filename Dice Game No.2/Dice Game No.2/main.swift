@@ -8,9 +8,24 @@
 
 import Foundation
 
-var gameBoardInput : String = "" //user input variable
-var gameBoardArray = [String]()  //game board values
-var diceSides: Int = 0
+struct Gameboard {
+var userInput : String = "" //user input variable
+var board = [String]()  //game board values
+var diceInput: Int = 0
+    
+//    func playGame (play: Bool, rollValue: Int) -> Int {
+//        
+//        for i in 0...4 {
+//            
+//            if gameBoard.board ==
+//            
+//        }
+//        
+//    }
+    
+}
+
+var gameBoard = Gameboard(userInput: "", board: [String](), diceInput: 0)
 
 repeat {
     
@@ -20,51 +35,71 @@ repeat {
         
         if input != "" { // if there is anything to be read then...
             
-            gameBoardInput = input //place input into variable
+            gameBoard.userInput = input //place input into variable
             
             //seperates input into array
-            gameBoardArray = gameBoardInput.components(separatedBy: " ")
+            gameBoard.board = gameBoard.userInput.components(separatedBy: " ")
             
         } else {
             
             print("please enter values") //error line
             
         }
-}
- 
-    repeat {
         
-        print("Enter your preferred dice sides.", terminator: "\n")
+    }
+    
+} while gameBoard.userInput == "" && gameBoard.board.count == 5 // if there is anything inputed and the gameBoard array has all five values
+
+repeat {
+    
+    print("Enter your preferred dice sides.", terminator: "\n")
+    
+    if let input2 = readLine(strippingNewline: true) {
         
-        if let input2 = readLine(strippingNewline: true) {
+        if let input2AsInteger = Int(input2) {
             
-            if let input2AsInteger = Int(input2) {
-                
-                diceSides = input2AsInteger
-                
-            } else {
-                
-                print("Please enter your preferred dice sides.")
-                
-            }
+            gameBoard.diceInput = input2AsInteger
+            
+        } else {
+            
+            print("Please enter your preferred dice sides.")
             
         }
         
+        if gameBoard.diceInput < 6 {
+            
+            print("Please enter a positive value above 5.")
+            
+        }
         
-    } while diceSides == 0
+    }
     
     
-} while gameBoardInput == "" && gameBoardArray.count == 5 // if there is anything inputed and the gameBoard array has all five values
-
-print(gameBoardArray) //check
+} while gameBoard.diceInput == 0 && gameBoard.diceInput < 5
 
 
+print(gameBoard.board) //check
+
+
+
+var averageRoll: Int = 0
 
 class Dice {
-    var sides: Int
+    var sides: Int = 0
     init(sides: Int){
         self.sides = sides
     }
+    
+    func roll (times: Int = 5) {
+        
+        for _ in 0...times {
+            averageRoll += Int(arc4random_uniform(UInt32(sides)))
+        }
+        return averageRoll = averageRoll / times
+    }
 }
 
+let dice = Dice(sides: gameBoard.diceInput)
+
+print(dice.roll())
 
