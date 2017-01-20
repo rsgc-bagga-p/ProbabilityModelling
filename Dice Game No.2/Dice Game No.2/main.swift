@@ -12,20 +12,35 @@ struct Gameboard {
 var userInput : String = "" //user input variable
 var board = [String]()  //game board values
 var diceInput: Int = 0
+    private var availableVal = [Bool]()
+    private var total: Int = 0
     
-//    func playGame (play: Bool, rollValue: Int) -> Int {
-//        
-//        for i in 0...4 {
-//            
-//            if gameBoard.board ==
-//            
-//        }
-//        
-//    }
+    init(userInput: String, board: [String] , diceInput: Int){
+        
+        self.userInput = userInput
+        self.board = board
+        self.diceInput = diceInput
+        self.availableVal = [true]
+        
+    }
+    
+    func playGame (play: Bool, rollValue: Int) -> Int {
+        
+        for i in 0...gameBoard.board.count {
+            
+            if gameBoard.board[i] == String(rollValue) {
+                
+                
+            }
+            
+        }
+       
+        return gameBoard.total
+    }
     
 }
 
-var gameBoard = Gameboard(userInput: "", board: [String](), diceInput: 0)
+var gameBoard = Gameboard(userInput: "h", board: [" "], diceInput: 0)
 
 repeat {
     
