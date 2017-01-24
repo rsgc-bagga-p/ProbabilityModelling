@@ -108,7 +108,7 @@ class Dice {
     func roll (times: Int = 5) {
         
         for _ in 0...times {
-            averageRoll += Int(arc4random_uniform(UInt32(sides)))
+            averageRoll += Int(arc4random_uniform(UInt32(dice.sides)))
         }
         return averageRoll = averageRoll / times
     }
