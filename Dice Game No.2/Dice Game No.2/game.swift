@@ -49,17 +49,36 @@ class Game { //the game
 //        return gameBoard.total
 //    }
     
-    func diceRoll(times: Int = 5){
+    func diceRoll(times: Int = 5) -> Int {
         for _ in 0...times {
             gameBoard.averageRoll += Int(arc4random_uniform(UInt32(6))) + 1
+            gameBoard.averageRoll += Int(arc4random_uniform(UInt32(6))) + 1
         }
-        return gameBoard.averageRoll = gameBoard.averageRoll / times
+        gameBoard.averageRoll = gameBoard.averageRoll / times
+        
+        print(gameBoard.averageRoll)
+        
+        return gameBoard.averageRoll
     }
     
     func playGame() {
         
+        let gameBoardInput = PlayerInput()
         
+        gameBoard.userInput = gameBoardInput.askForGameBoard()
         
+        gameBoard.board = gameBoard.userInput.components(separatedBy: " ")
+        
+        for i in 0...gameBoard.board.count - 1 {
+            
+            if gameBoard.board[i] == String(describing: diceRoll()) {
+                
+                
+                
+            }
+            
+            
+        }
         
     }
     

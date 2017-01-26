@@ -25,15 +25,18 @@ import Foundation
 //    }
 //}
 
-var playGame = PlayerInput()
+//var playGame = PlayerInput()
 
-if playGame.promtPlayer() == true {
+
+//if playGame.promtPlayer() == true {
     
     var game = Game()
     
     game.playGame()
     
-} else {
     
-    print("Sorry to hear that, have a good day!")
-}
+    
+//} else {
+    
+  //  print("Sorry to hear that, have a good day!")
+//}
