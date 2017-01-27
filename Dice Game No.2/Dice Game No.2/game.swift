@@ -19,7 +19,7 @@ class Game { //the game
         var diceVal: Int = 0 //diceValue
         var availableVal = [Bool]()
         var total: Int = 0
-        var averageRoll: Int = 0
+        var roll: Int = 0
         var diceRoll = [String]()
         
         init(userInput: String, board: [String]){
@@ -28,7 +28,7 @@ class Game { //the game
             self.board = board
             self.diceVal = 0
             self.availableVal = [true]
-            self.averageRoll = 0
+            self.roll = 0
             
         }
         
@@ -50,16 +50,11 @@ class Game { //the game
 //        return gameBoard.total
 //    }
     
-    func diceRoll(times: Int = 5) -> String {
-        for _ in 0...times {
-            gameBoard.averageRoll += Int(arc4random_uniform(UInt32(6))) + 1
-            gameBoard.averageRoll += Int(arc4random_uniform(UInt32(6))) + 1
-        }
-        gameBoard.averageRoll = gameBoard.averageRoll / times
+    func diceRoll() -> String {
+
+            gameBoard.roll = ((Int(arc4random_uniform(UInt32(6))) + 1) + (Int(arc4random_uniform(UInt32(6))) + 1))
         
-        //print(gameBoard.averageRoll)
-        
-        return String(gameBoard.averageRoll)
+        return String(gameBoard.roll)
     }
     
     func playGame() {
