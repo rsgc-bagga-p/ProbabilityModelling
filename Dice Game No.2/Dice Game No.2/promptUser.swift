@@ -12,6 +12,7 @@ class PlayerInput { //player input class declaration
     
     private var gameBoardInput: String = "" //game board input string
     private var modeInput: String = "" //mode input string
+    private var gameBoardArrayTest = [String]()
     
     init(){ //initialize nothing
     }
@@ -28,8 +29,11 @@ class PlayerInput { //player input class declaration
                     
                     let userInput = input //place input into variable
                     
-                    //seperates input into array
+                    //place unwrapped value into gameBoard variable
                     gameBoardInput = userInput
+                    
+                    //split into array for testing
+                    gameBoardArrayTest = gameBoardInput.components(separatedBy: " ")
                     
                 } else {
                     
@@ -39,7 +43,7 @@ class PlayerInput { //player input class declaration
                 
             }
             
-        } while gameBoardInput == "" // if there is anything inputed then let go
+        } while gameBoardInput == "" || gameBoardArrayTest.count != 5 // if there is anything inputed then let go
         
         return gameBoardInput //return the board input value
     }

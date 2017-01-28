@@ -11,7 +11,5 @@ import Foundation
 
 var game = Game() //create object of class Game to run the play game function
 //var gameBoard = Gameboard() //For testing purposes
-
-
 game.playGame() //play the game
 
