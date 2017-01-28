@@ -51,15 +51,29 @@ class Game { //the game
         
         let gameBoardInput = PlayerInput()
         
-        gameBoard.userInput = gameBoardInput.askForGameBoard()
-        
-        gameBoard.board = gameBoard.userInput.components(separatedBy: " ")
-        
         gameBoard.userInput = gameBoardInput.askForMode()
         
         if gameBoard.userInput == "Play" {
+            
+            gameBoard.userInput = gameBoardInput.askForGameBoard()
+            
+            gameBoard.board = gameBoard.userInput.components(separatedBy: " ")
+            
+            for _ in 0...gameBoard.board.count - 1 {
+                gameBoard.diceRoll.append(diceRoll())
+            }
         
-        gameLogic()
+            gameLogic()
+            
+            for t in 0...gameBoard.availableVal.count - 1 {
+                
+                if gameBoard.availableVal[t] == true {
+                    
+                    gameBoard.total += Int(gameBoard.board[t])!
+                    
+                }
+                
+            }
         
         print(gameBoard.total)
         } else {
@@ -78,12 +92,6 @@ class Game { //the game
     }
     
     func gameLogic() {
-        
-        for _ in 0...gameBoard.board.count - 1 {
-            gameBoard.diceRoll.append(diceRoll())
-        }
-        
-        //print(gameBoard.diceRoll)
         
         //see which numbers get to be crossed off
         
@@ -111,16 +119,6 @@ class Game { //the game
         
         print(gameBoard.availableVal)
         print(gameBoard.diceRoll)
-        
-        for t in 0...gameBoard.availableVal.count - 1 {
-            
-            if gameBoard.availableVal[t] == true {
-                
-                gameBoard.total += Int(gameBoard.board[t])!
-                
-            }
-            
-        }
     
     }
     
