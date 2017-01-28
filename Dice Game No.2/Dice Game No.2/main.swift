@@ -14,6 +14,8 @@ import Foundation
 //if playGame.promtPlayer() == true {
     
     var game = Game()
+    var gameBoard = Gameboard()
+
     
     game.playGame()
     

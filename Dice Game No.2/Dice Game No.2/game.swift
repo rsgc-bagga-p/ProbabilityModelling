@@ -58,12 +58,8 @@ class Game { //the game
             gameBoard.userInput = gameBoardInput.askForGameBoard()
             
             gameBoard.board = gameBoard.userInput.components(separatedBy: " ")
-            
-            for _ in 0...gameBoard.board.count - 1 {
-                gameBoard.diceRoll.append(diceRoll())
-            }
         
-            gameLogic()
+        gameLogic()
             
             for t in 0...gameBoard.availableVal.count - 1 {
                 
@@ -87,11 +83,11 @@ class Game { //the game
         
     }
     
-    func resetChecker() {
-        gameBoard.availableVal = [true,true,true,true,true]
-    }
-    
     func gameLogic() {
+        
+        for _ in 0...gameBoard.board.count - 1 {
+            gameBoard.diceRoll.append(diceRoll())
+        }
         
         //see which numbers get to be crossed off
         

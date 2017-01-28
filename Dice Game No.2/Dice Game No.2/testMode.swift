@@ -28,14 +28,16 @@ class Mode {
         
         gameBoard.board = gameBoard.userInput.components(separatedBy: " ")
         
+        print(gameBoard.board)
+        
         while testCounter < 100 {
             
             for _ in 0...gameBoard.board.count - 1 {
                 gameBoard.diceRoll.append(gameFunctions.diceRoll())
             }
             
-            gameFunctions.gameLogic()
-            
+            testLogic()
+    
             for t in 0...gameBoard.availableVal.count - 1 {
                 
                 if gameBoard.availableVal[t] == true {
@@ -45,10 +47,11 @@ class Mode {
                 }
                 
             }
-        
-            gameBoard.total = 0
             
-            gameFunctions.resetChecker()
+            print(gameBoard.diceRoll)
+            print(gameBoard.availableVal)
+            
+            resetChecker()
             
             resetDice()
             
@@ -56,15 +59,45 @@ class Mode {
         }
         
         print(averageTotal/testCounter)
-        
+    
     }
     
    func resetDice(){
-    
-    for p in 0...gameBoard.board.count - 1 {
-    gameBoard.diceRoll[p] = " "
+    gameBoard.diceRoll.removeAll()
     }
     
+    func resetChecker() {
+        for i in 0...gameBoard.availableVal.count - 1 {
+            gameBoard.availableVal[i] = true
+        }
+    }
+    
+    func testLogic() {
+        
+        //see which numbers get to be crossed off
+        
+        for i in 0...gameBoard.board.count - 1 {
+            
+            for j in 0...gameBoard.board.count - 1 {
+                
+                if gameBoard.board[i] == gameBoard.diceRoll[j] {
+                    
+                    if gameBoard.availableVal[i] == true {
+                        
+                        gameBoard.availableVal[i] = false
+                        
+                    } else {
+                        
+                        gameBoard.availableVal[i] = true
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
     }
 
 }
