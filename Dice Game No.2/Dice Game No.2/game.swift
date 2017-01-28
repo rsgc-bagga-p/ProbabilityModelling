@@ -27,7 +27,7 @@ class Game { //the game
             self.userInput = userInput
             self.board = board
             self.diceVal = 0
-            self.availableVal = [true]
+            self.availableVal = [true,true,true,true,true]
             self.roll = 0
             
         }
@@ -36,19 +36,6 @@ class Game { //the game
     
     var gameBoard = Gameboard(userInput: "h", board: [" "])
     
-//    func playGame (play: Bool, rollValue: Int) -> Int {
-//        
-//        for i in 0...gameBoard.board.count {
-//            
-//            if gameBoard.board[i] == String(rollValue) {
-//                
-//                
-//            }
-//            
-//        }
-//        
-//        return gameBoard.total
-//    }
     
     func diceRoll() -> String {
 
@@ -69,7 +56,46 @@ class Game { //the game
             gameBoard.diceRoll.append(diceRoll())
         }
         
+        //print(gameBoard.diceRoll)
+        
+        //see which numbers get to be crossed off
+        
+        for i in 0...gameBoard.board.count - 1 {
+            
+            for j in 0...gameBoard.board.count - 1 {
+                
+                if gameBoard.board[i] == gameBoard.diceRoll[j] {
+                    
+                    if gameBoard.availableVal[i] == true {
+                        
+                        gameBoard.availableVal[i] = false
+                        
+                    } else {
+                        
+                        gameBoard.availableVal[i] = true
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+        print(gameBoard.availableVal)
         print(gameBoard.diceRoll)
+        
+        for t in 0...gameBoard.availableVal.count - 1 {
+            
+            if gameBoard.availableVal[t] == true {
+                
+                gameBoard.total += Int(gameBoard.board[t])!
+                
+            }
+            
+        }
+        
+        print(gameBoard.total)
         
     }
     
