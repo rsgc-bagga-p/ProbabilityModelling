@@ -8,36 +8,44 @@
 
 import Foundation
 
-class Mode {
+class Mode { //mode class (meant for testMode)
     
+    //initialize nothing
     init (){
         
         
     }
     
+    //create the objects to use functions in different classes
     var gameBoard = Gameboard()
     var gameFunctions = Game()
     var gameBoardInput = PlayerInput()
+    
+    //variables for the test scenario, total and counter
     private var averageTotal : CLongLong = 0
     private var testCounter : CLongLong = 0
     
     
-    func testMode() {
+    func testMode() { //test game play
         
+        //get the board and split into an array
         gameBoard.userInput = gameBoardInput.askForGameBoard()
         
         gameBoard.board = gameBoard.userInput.components(separatedBy: " ")
         
-        print(gameBoard.board)
+        print(gameBoard.board) //print game board
         
-        while testCounter < 100 {
+        while testCounter < 100 { // do it 100 times and then take the average
             
+            
+            //roll the dice
             for _ in 0...gameBoard.board.count - 1 {
                 gameBoard.diceRoll.append(gameFunctions.diceRoll())
             }
             
-            testLogic()
-    
+            testLogic() //run the logic
+            
+            //create the total over the 100 tries
             for t in 0...gameBoard.availableVal.count - 1 {
                 
                 if gameBoard.availableVal[t] == true {
@@ -47,31 +55,35 @@ class Mode {
                 }
                 
             }
-            
+            //print to command line
             print(gameBoard.diceRoll)
             print(gameBoard.availableVal)
             
-            resetChecker()
+            resetChecker() //reset the checking array (available values)
             
-            resetDice()
+            resetDice() //reset the dice array
             
-            testCounter += 1
+            testCounter += 1 //increment the counte
         }
         
-        print(averageTotal/testCounter)
-    
+        print(averageTotal/testCounter) //print the average, the lower the better
+        
     }
     
-   func resetDice(){
-    gameBoard.diceRoll.removeAll()
+    //reset the dice function
+    func resetDice(){
+        gameBoard.diceRoll.removeAll()
     }
     
+    //reset the available value array
     func resetChecker() {
         for i in 0...gameBoard.availableVal.count - 1 {
             gameBoard.availableVal[i] = true
         }
     }
     
+    
+    //logic, same are the gameLogic function
     func testLogic() {
         
         //see which numbers get to be crossed off
@@ -99,5 +111,5 @@ class Mode {
         }
         
     }
-
+    
 }

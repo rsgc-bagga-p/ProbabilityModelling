@@ -8,20 +8,10 @@
 
 import Foundation
 
-//var playGame = PlayerInput()
+
+var game = Game() //create object of class Game to run the play game function
+//var gameBoard = Gameboard() //For testing purposes
 
 
-//if playGame.promtPlayer() == true {
-    
-    var game = Game()
-    var gameBoard = Gameboard()
+game.playGame() //play the game
 
-    
-    game.playGame()
-    
-    
-    
-//} else {
-    
-  //  print("Sorry to hear that, have a good day!")
-//}

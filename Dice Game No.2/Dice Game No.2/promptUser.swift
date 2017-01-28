@@ -8,43 +8,14 @@
 
 import Foundation
 
-class PlayerInput {
+class PlayerInput { //player input class declaration
     
-    private var initialInput: String = ""
-    private var gameBoardInput: String = ""
-    private var modeInput: String = ""
+    private var gameBoardInput: String = "" //game board input string
+    private var modeInput: String = "" //mode input string
     
-    init(){
+    init(){ //initialize nothing
     }
-    
-    func promtPlayer() -> Bool {
         
-        
-        repeat {
-            
-            print("Would you like to play? (Yes/No)", terminator:"\n")
-            
-            if let input = readLine(strippingNewline: true){
-                
-                if input != "" { // if there is anything to read then...
-                    
-                    let initialInput = input //place input into variable
-                    
-                    //print(initialInput)
-                    
-                    if initialInput != "Yes" && initialInput != "No" {
-                        
-                        print("Please only write Yes or No")
-                    }
-                    
-                }
-                
-            }
-        } while initialInput != "Yes" && initialInput != "No"
-        
-        return true
-    }
-    
     func askForGameBoard() -> String {
         
         repeat {
@@ -70,7 +41,7 @@ class PlayerInput {
             
         } while gameBoardInput == "" // if there is anything inputed then let go
         
-        return gameBoardInput
+        return gameBoardInput //return the board input value
     }
     
     func askForMode() -> String {
@@ -98,8 +69,8 @@ class PlayerInput {
             
         } while modeInput == "" // if there is anything inputed then let go
         
-        return modeInput
+        return modeInput //return the mode input value
         
     }
     
-} 
+}
