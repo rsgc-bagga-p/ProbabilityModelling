@@ -8,33 +8,36 @@
 
 import Foundation
 
+struct Gameboard {
+    var userInput : String = "" //user input variable
+    var board = [String]()  //game board values
+    var diceVal: Int = 0 //diceValue
+    var availableVal = [Bool]()
+    var total: Int = 0
+    var roll: Int = 0
+    var diceRoll = [String]()
+    var finished : Bool = true
+    
+    init(){
+        
+        self.userInput = ""
+        self.board = [" "]
+        self.diceVal = 0
+        self.availableVal = [true,true,true,true,true]
+        self.roll = 0
+        self.finished = true
+        
+    }
+    
+}
+
 class Game { //the game
     init(){
         
     }
     
-    struct Gameboard {
-        var userInput : String = "" //user input variable
-        var board = [String]()  //game board values
-        var diceVal: Int = 0 //diceValue
-        var availableVal = [Bool]()
-        var total: Int = 0
-        var roll: Int = 0
-        var diceRoll = [String]()
-        
-        init(userInput: String, board: [String]){
-            
-            self.userInput = userInput
-            self.board = board
-            self.diceVal = 0
-            self.availableVal = [true,true,true,true,true]
-            self.roll = 0
-            
-        }
-        
-    }
     
-    var gameBoard = Gameboard(userInput: "h", board: [" "])
+    var gameBoard = Gameboard()
     
     
     func diceRoll() -> String {
@@ -51,6 +54,30 @@ class Game { //the game
         gameBoard.userInput = gameBoardInput.askForGameBoard()
         
         gameBoard.board = gameBoard.userInput.components(separatedBy: " ")
+        
+        gameBoard.userInput = gameBoardInput.askForMode()
+        
+        if gameBoard.userInput == "Play" {
+        
+        gameLogic()
+        
+        print(gameBoard.total)
+        } else {
+            
+            let testMode = Mode()
+            
+            testMode.testMode()
+            
+        }
+        
+        
+    }
+    
+    func resetChecker() {
+        gameBoard.availableVal = [true,true,true,true,true]
+    }
+    
+    func gameLogic() {
         
         for _ in 0...gameBoard.board.count - 1 {
             gameBoard.diceRoll.append(diceRoll())
@@ -94,9 +121,9 @@ class Game { //the game
             }
             
         }
-        
-        print(gameBoard.total)
-        
+    
     }
+    
+    
     
 }

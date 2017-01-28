@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3F4F31371E37E260008D2E12 /* promptUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F31361E37E260008D2E12 /* promptUser.swift */; };
 		3F4F31391E395F5D008D2E12 /* game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F31381E395F5D008D2E12 /* game.swift */; };
+		3F4F313B1E3C6779008D2E12 /* gameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F313A1E3C6778008D2E12 /* gameLogic.swift */; };
+		3F4F313F1E3C7A39008D2E12 /* testMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F313E1E3C7A39008D2E12 /* testMode.swift */; };
 		3FC47FCD1E2D569E0032B3EF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC47FCC1E2D569E0032B3EF /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 /* Begin PBXFileReference section */
 		3F4F31361E37E260008D2E12 /* promptUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = promptUser.swift; sourceTree = "<group>"; };
 		3F4F31381E395F5D008D2E12 /* game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = game.swift; sourceTree = "<group>"; };
+		3F4F313A1E3C6778008D2E12 /* gameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameLogic.swift; sourceTree = "<group>"; };
+		3F4F313E1E3C7A39008D2E12 /* testMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testMode.swift; sourceTree = "<group>"; };
 		3FC47FC91E2D569E0032B3EF /* Dice Game No.2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Dice Game No.2"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FC47FCC1E2D569E0032B3EF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +67,8 @@
 			children = (
 				3FC47FCC1E2D569E0032B3EF /* main.swift */,
 				3F4F31381E395F5D008D2E12 /* game.swift */,
+				3F4F313A1E3C6778008D2E12 /* gameLogic.swift */,
+				3F4F313E1E3C7A39008D2E12 /* testMode.swift */,
 				3F4F31361E37E260008D2E12 /* promptUser.swift */,
 			);
 			path = "Dice Game No.2";
@@ -129,6 +135,8 @@
 			files = (
 				3F4F31391E395F5D008D2E12 /* game.swift in Sources */,
 				3F4F31371E37E260008D2E12 /* promptUser.swift in Sources */,
+				3F4F313B1E3C6779008D2E12 /* gameLogic.swift in Sources */,
+				3F4F313F1E3C7A39008D2E12 /* testMode.swift in Sources */,
 				3FC47FCD1E2D569E0032B3EF /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

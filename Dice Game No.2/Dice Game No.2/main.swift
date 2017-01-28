@@ -8,23 +8,6 @@
 
 import Foundation
 
-
-
-//class Dice {
-//    var sides: Int = 0
-//    init(sides: Int){
-//        self.sides = sides
-//    }
-//    
-//    func roll (times: Int = 5) {
-//        
-//        for _ in 0...times {
-//            averageRoll += Int(arc4random_uniform(UInt32(dice.sides)))
-//        }
-//        return averageRoll = averageRoll / times
-//    }
-//}
-
 //var playGame = PlayerInput()
 
 
